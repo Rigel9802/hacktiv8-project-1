@@ -37,6 +37,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void createData(String title, String desc) {
+        // Add data
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
@@ -48,6 +49,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public Cursor readData() {
+        // Tampilkan Data
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
 
@@ -59,6 +61,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public void updateData(String id, String title, String desc) {
+        // update/edit data
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -70,6 +73,7 @@ public class Database extends SQLiteOpenHelper {
 
 
     public void deleteData(String id) {
+        // hapus data
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, "id=?", new String[]{id});
     }
