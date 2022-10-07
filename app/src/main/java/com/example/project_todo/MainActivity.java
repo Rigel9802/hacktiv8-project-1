@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.example.project_todo.adapter.Adapters;
 import com.example.project_todo.database.Database;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +24,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvView;
     private FloatingActionButton fab;
 
+    // decorations
+    private ImageView decor1;
+    private TextView decor2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         id = new ArrayList();
         title = new ArrayList();
         desc = new ArrayList();
+        decor1 = (ImageView) findViewById(R.id.imageView);
+        decor2 = (TextView) findViewById(R.id.acc2);
         fab = (FloatingActionButton) findViewById(R.id.fab);
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,14 +53,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getDataArray();
-        rvAdapters = new Adapters(MainActivity.this,this, id, title, desc);
+        rvAdapters = new Adapters(MainActivity.this, this, id, title, desc);
         rvView.setAdapter(rvAdapters);
         rvView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
     }
 
     private void getDataArray() {
         Cursor cursor = database.readData();
-        while (cursor.moveToNext()){
+        System.out.println(cursor.getCount());
+        if (cursor.getCount() > 0) {
+            decor1.setVisibility(View.GONE);
+            decor2.setVisibility(View.GONE);
+        }
+        while (cursor.moveToNext()) {
             id.add(cursor.getString(0));
             title.add(cursor.getString(1));
             desc.add(cursor.getString(2));
