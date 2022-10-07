@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView rvView;
     private FloatingActionButton fab;
 
-    // decorations
+    // decorations view
     private ImageView decor1;
     private TextView decor2;
 
