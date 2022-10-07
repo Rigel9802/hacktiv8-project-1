@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".ViewActivity"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ViewActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:background="@color/white"
+        android:fitsSystemWindows="true"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -26,6 +26,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <Button
                     android:id="@+id/backButton"
                     android:layout_width="wrap_content"
@@ -45,6 +46,7 @@
                     android:id="@+id/saveButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
                     android:background="@drawable/background_button"
                     android:fontFamily="@font/nunito_bold"
                     android:minWidth="80dp"
@@ -53,7 +55,6 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="16dp"
-                    android:layout_marginRight="20dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -71,16 +72,22 @@
             android:id="@+id/inputTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_border"
+            android:fontFamily="@font/nunito_medium"
             android:hint="Title"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nunito_medium"/>
+            android:padding="10dp"
+            android:textColor="@color/black" />
+
         <EditText
             android:id="@+id/inputDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_border"
+            android:fontFamily="@font/nunito_regular"
             android:hint="Desc"
-            android:textColor="@color/black"
-            android:fontFamily="@font/nunito_regular"/>
+            android:padding="10dp"
+            android:textColor="@color/black" />
 
 
     </LinearLayout>

@@ -36,34 +36,41 @@ public class Database extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void createData( String title, String desc) {
+    public void createData(String title, String desc) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(DATA_TITLE,title);
+        values.put(DATA_TITLE, title);
         values.put(DATA_DESC, desc);
 
         db.insert(TABLE_NAME, null, values);
         db.close();
     }
 
-    public Cursor readData(){
+    public Cursor readData() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
 
         Cursor cursor = null;
-        if(db != null){
+        if (db != null) {
             cursor = db.rawQuery(query, null);
         }
         return cursor;
     }
 
-    public void updateData(String id, String title, String desc){
-        //UPDATE DATA
+    public void updateData(String id, String title, String desc) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+
+        cv.put(DATA_TITLE, title);
+        cv.put(DATA_DESC, desc);
+        db.update(TABLE_NAME, cv, "id=?", new String[]{id});
+
     }
 
 
-    public void deleteData(String id){
-        //DELETE DATA
+    public void deleteData(String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, "id=?", new String[]{id});
     }
 }

@@ -26,8 +26,9 @@ public class Adapters extends RecyclerView.Adapter<Adapters.AdaptersViewHolders>
     private Context context;
     private Activity activity;
     private ArrayList id, title, desc;
+    private Database database;
 
-    public Adapters(Context context, Activity activity, ArrayList id, ArrayList title, ArrayList desc){
+    public Adapters(Context context, Activity activity, ArrayList id, ArrayList title, ArrayList desc) {
         this.context = context;
         this.activity = activity;
         this.id = id;
@@ -38,7 +39,7 @@ public class Adapters extends RecyclerView.Adapter<Adapters.AdaptersViewHolders>
     @NonNull
     @Override
     public AdaptersViewHolders onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.row_item,parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.row_item, parent, false);
         return new AdaptersViewHolders(view);
     }
 
@@ -69,6 +70,10 @@ public class Adapters extends RecyclerView.Adapter<Adapters.AdaptersViewHolders>
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(context, MainActivity.class);
+                                database = new Database(context);
+                                database.deleteData(String.valueOf(id.get(position)));
+                                activity.startActivityForResult(intent, 1);
                             }
                         }).create();
                 dialog.show();
@@ -82,7 +87,7 @@ public class Adapters extends RecyclerView.Adapter<Adapters.AdaptersViewHolders>
         return id.size();
     }
 
-    public class AdaptersViewHolders extends RecyclerView.ViewHolder{
+    public class AdaptersViewHolders extends RecyclerView.ViewHolder {
         TextView textTitle, textDesc;
         ConstraintLayout constraintLayout;
 
