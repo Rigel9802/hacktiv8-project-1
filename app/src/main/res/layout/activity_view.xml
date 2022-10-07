@@ -37,6 +37,7 @@
                     android:paddingRight="15dp"
                     android:stateListAnimator="@null"
                     android:text="Back"
+                    android:textColor="@color/black"
                     android:textAllCaps="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
