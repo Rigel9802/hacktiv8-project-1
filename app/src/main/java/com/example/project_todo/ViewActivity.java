@@ -1,12 +1,13 @@
 package com.example.project_todo;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.project_todo.database.Database;
 
@@ -47,12 +48,12 @@ public class ViewActivity extends AppCompatActivity implements View.OnClickListe
                 // Seleksi buat update dan create karena kita pakai 1 page untuk 2 fungsi (create & update)
                 String Ttitle = inputTitle.getText().toString().trim();
                 String Tdesc = inputDesc.getText().toString().trim();
-                if (Ttitle.isEmpty() || Tdesc.isEmpty()){
+                if (Ttitle.isEmpty() || Tdesc.isEmpty()) {
                     Toast.makeText(this, "To-Do Still empty!", Toast.LENGTH_SHORT).show();
-                }else{
-                    if (id == null){
+                } else {
+                    if (id == null) {
                         database.createData(inputTitle.getText().toString().trim(), inputDesc.getText().toString().trim());
-                    }else{
+                    } else {
                         database.updateData(id, inputTitle.getText().toString().trim(), inputDesc.getText().toString().trim());
                     }
                     Intent intent = new Intent(this, MainActivity.class);

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Code/Android Studio/Project-ToDo/hacktiv8-project-1/app/src/main/res/layout/activity_main.xml" value="0.13148148148148148" />
+        <entry key="..\:/Code/Android Studio/Project-ToDo/hacktiv8-project-1/app/src/main/res/layout/activity_view.xml" value="0.25677083333333334" />
+        <entry key="..\:/Code/Android Studio/Project-ToDo/hacktiv8-project-1/app/src/main/res/layout/row_item.xml" value="0.25677083333333334" />
         <entry key="..\:/GITHUB CLONE/hacktiv8-project-1/app/src/main/res/layout/activity_main.xml" value="0.25104166666666666" />
         <entry key="..\:/GITHUB CLONE/hacktiv8-project-1/app/src/main/res/layout/activity_view.xml" value="0.25104166666666666" />
         <entry key="..\:/Users/danuf/AndroidStudioProjects/ProjectToDo/app/src/main/res/drawable/background_button.xml" value="0.18" />
